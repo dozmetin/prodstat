@@ -22,6 +22,7 @@ public class TempService {
     }
 
     public String searchTrack(String trackName, String artistName) {
+
         String jsonResponse = spotifyWebCl.get()
                 .uri(uriBuilder -> uriBuilder.path("/search")
                         .queryParam("q", "{track} artist:{artist}")
