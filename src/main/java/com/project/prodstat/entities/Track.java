@@ -47,13 +47,16 @@ public class Track {
     @Column(
             name = "youtube_views"
     )
-    int youtubeViewCount;
+    long youtubeViewCount;
 
-    public Track(String trackName, String artistName, List<Long> catalogIds, int spotifyPopularity, int youtubeViewCount) {
+    public Track(String trackName, String artistName, List<Long> catalogIds, int spotifyPopularity, long youtubeViewCount) {
         this.trackName = trackName;
         this.artistName = artistName;
         this.spotifyPopularity = spotifyPopularity;
         this.youtubeViewCount = youtubeViewCount;
+    }
+
+    public Track() {
     }
 
     public String getTrackName() {
@@ -80,11 +83,11 @@ public class Track {
         this.spotifyPopularity = spotifyPopularity;
     }
 
-    public int getYoutubeViewCount() {
+    public long getYoutubeViewCount() {
         return youtubeViewCount;
     }
 
-    public void setYoutubeViewCount(int youtubeViewCount) {
+    public void setYoutubeViewCount(long youtubeViewCount) {
         this.youtubeViewCount = youtubeViewCount;
     }
 }
