@@ -22,10 +22,13 @@ public class Catalog {
 
 
     @Column(
-            name = "user_id",
+            name = "producer_id",
             updatable = false
     )
-    private Long userId;
+    private Long producerId;
+
+    public Catalog() {
+    }
 
     @ManyToMany
     @JoinTable(
@@ -35,9 +38,14 @@ public class Catalog {
     )
     private Set<Track> tracks = new HashSet<>();
 
-    public Catalog(Long id, Long userId, Set<Track> tracks) {
+    public Catalog(Long id, Long producerId, Set<Track> tracks) {
         this.id = id;
-        this.userId = userId;
+        this.producerId = producerId;
+        this.tracks = tracks;
+    }
+
+    public Catalog(Long producerId, Set<Track> tracks) {
+        this.producerId = producerId;
         this.tracks = tracks;
     }
 
@@ -45,8 +53,8 @@ public class Catalog {
         return id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getProducerId() {
+        return producerId;
     }
 
     public Set<Track> getTracks() {
